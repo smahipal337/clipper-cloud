@@ -7,10 +7,10 @@ jobs:
       - name: Install downloader
         run: pip install -q -U "yt-dlp[default]"
       - name: YouTube video
-        run: yt-dlp -f "b[height<=360]/b" -o yt_video.%(ext)s --print "after_move:DOWNLOADED %(title)s" "https://youtu.be/kJQP7kiw5Fk" || echo "::warning::YOUTUBE VIDEO BLOCKED"
+        run: yt-dlp -f "b[height<=360]/b" -o "yt_video.%(ext)s" --print "after_move:DOWNLOADED %(title)s" "https://youtu.be/kJQP7kiw5Fk" || echo "::warning::YOUTUBE VIDEO BLOCKED"
       - name: YouTube Short
-        run: yt-dlp -f "b[height<=360]/b" -o yt_short.%(ext)s --print "after_move:DOWNLOADED %(title)s" "https://youtube.com/shorts/Di-0c9XDq_o" || echo "::warning::YOUTUBE SHORT BLOCKED"
+        run: yt-dlp -f "b[height<=360]/b" -o "yt_short.%(ext)s" --print "after_move:DOWNLOADED %(title)s" "https://youtube.com/shorts/Di-0c9XDq_o" || echo "::warning::YOUTUBE SHORT BLOCKED"
       - name: Instagram public Reel
-        run: yt-dlp -o ig_reel.%(ext)s --print "after_move:DOWNLOADED %(title)s" "https://www.instagram.com/reel/DVJJOYRDGJu/" || echo "::warning::INSTAGRAM BLOCKED"
+        run: yt-dlp -o "ig_reel.%(ext)s" --print "after_move:DOWNLOADED %(title)s" "https://www.instagram.com/reel/DVJJOYRDGJu/" || echo "::warning::INSTAGRAM BLOCKED"
       - name: Result
         run: ls -la *.mp4 *.webm 2>/dev/null || echo "nothing downloaded"
